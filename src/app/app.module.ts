@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from './components/nav/nav.component';
 import {HttpClientModule} from'@angular/common/http';
 import { from } from 'rxjs';
+import { CardetailComponent } from './components/cardetail/cardetail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { from } from 'rxjs';
     CustomerComponent,
     CarComponent,
     RentalComponent,
-    NavComponent
+    NavComponent,
+    CardetailComponent
   ],
   imports: [
     BrowserModule,

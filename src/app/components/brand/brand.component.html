@@ -1,12 +1,14 @@
-<table>
-    <thead>
-        <tr>
-            <th>BRAND-ID</th>
-            <th>BRAND-NAME</th>
-        </tr>
-    </thead>
-<tr *ngFor="let brand of brands">
-    <td>{{brand.brandId}}</td>
+
+<ul class="list-group">
+<li>
+    Tüm Markalarr
+</li>
+<li (click)="setCurrentBrand(brand)"
+routerLink="/cars/brand/{{brand.brandId}}"
+[class]="getCurrentBrandClass(brand)"
+*ngFor="let brand of brands"
+>
     <td>{{brand.brandName}}</td>
-</tr>
-</table>
+</li>
+</ul>
+<h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz.</h5>

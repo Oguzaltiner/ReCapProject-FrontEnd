@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="row">
+                <table class="table">
+                    <tbody *ngFor="let car of carDetail">
+                      <tr>
+                        <th scope="row">Marka</th>
+                        <td>{{car.brandName}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Model Yılı</th>
+                        <td>{{car.modelYear}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Günlük Fiyat</th>
+                        <td>{{car.dailyPrice}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Açıklama</th>
+                        <td>{{car.description}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Renk</th>
+                        <td>{{car.colorName}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
