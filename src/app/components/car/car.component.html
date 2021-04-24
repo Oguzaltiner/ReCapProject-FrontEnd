@@ -6,6 +6,52 @@
   {{ filterText }} aradınız
 </div>
 
+<div class="row my-4">
+  <div class="col md-3">
+    <select
+      class="form-select rounded-0"
+      [(ngModel)]="brandFilter"
+      [value]="brandFilter"
+    >
+      <option value="0">Marka Seçiniz</option>
+      <option
+        *ngFor="let brand of Brands"
+        [value]="brand.brandId"
+        [selected]="selectedBrand(brand.brandId)"
+      >
+        {{ brand.brandName }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <select
+      class="form-select rounded-0"
+      [(ngModel)]="colorFilter"
+      [value]="colorFilter"
+    >
+      <option value="0">Renk Seçiniz</option>
+      <option
+        *ngFor="let color of Colors"
+        [value]="color.colorId"
+        [selected]="selectedColor(color.colorId)"
+      >
+        {{ color.colorName }}
+      </option>
+    </select>
+  </div>
+
+
+  <div class="col-lg">
+    <div class="d-grid">
+      <button
+      [disabled]="brandFilter == 0 || colorFilter == 0"
+        class="btn btn-primary"
+        routerLink="/filter/{{ brandFilter }}/{{ colorFilter }}"
+      >
+        <i class="bi-search me-1"></i> Filtrele
+      </button>
+    </div>
+
 <table class="table table-striped table-light table-hover">
     <thead>
         <tr>
