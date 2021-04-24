@@ -1,19 +1,24 @@
-<div class="col-md-3 text-light">
-  
-  </div>
-  <div class="col-md-9 text-light">
+<div class="mb-3">
+  <label for="filtertext" class="form-label">Ürün Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Ara"/>
+</div>
+<div *ngIf="filterText" class="alert alert-primary">
+  {{ filterText }} aradınız
+</div>
+
 <table class="table table-striped table-light table-hover">
     <thead>
         <tr>
             <th>id</th>
+            <th>Araba Adı</th>
           <th scope="col">Günlük Ücret</th>
           <th scope="col">Açıklama</th>
         </tr>
       </thead>
-<tr (click)="SetCurrentCarDetail(car)" *ngFor="let car of Cars" routerLink="/car/cardetails/{{car.id}}">
+<tr (click)="SetCurrentCarDetail(car)" *ngFor="let car of Cars | filterPipe:filterText" routerLink="/car/cardetails/{{car.id}}" >
         <td>{{car.id}}</td>
+        <td>{{car.carName}}</td>
         <td>{{car.dailyPrice}}</td>
         <td>{{car.description}}</td>
-    
 </tr>
-</table></div>
+</table>
